@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaše Jméno - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <div class="lang-switcher">
+            <a href="#" data-lang="cz" class="active">CZ</a>
+            <a href="#" data-lang="en">EN</a>
+        </div>
+        <div class="hero-content">
+            <h1>Vaše Jméno</h1>
+            <p class="subtitle">
+                <span class="lang lang-cz" style="display:none;">DevOps & Automation Engineer | Python & ML Nadšenec</span>
+                <span class="lang lang-en" style="display:none;">DevOps & Automation Engineer | Python & ML Enthusiast</span>
+            </p>
+            <div class="contact-links">
+                <a href="mailto:vas.email@example.com">email</a> |
+                <a href="https://www.linkedin.com/in/vas-profil" target="_blank">linkedin</a> |
+                <a href="https://github.com/vas-ucet" target="_blank">github</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="container">
+            <h2>
+                <span class="lang lang-cz" style="display:none;">O mně</span>
+                <span class="lang lang-en" style="display:none;">About Me</span>
+            </h2>
+            <p>
+                <span class="lang lang-cz" style="display:none;">Jsem zkušený inženýr se specializací na automatizaci a správu v prostředí Windows pomocí PowerShellu. Mám prokazatelné zkušenosti s vývojem a nasazováním machine learning řešení v Pythonu. Mou silnou stránkou je kombinace hlubokých znalostí systémové administrace s praktickým vývojem softwaru, což mi umožňuje vytvářet robustní a efektivní řešení od infrastruktury až po finální aplikaci.</span>
+                <span class="lang lang-en" style="display:none;">I am an experienced engineer specializing in automation and administration in Windows environments using PowerShell. I have proven experience in developing and deploying machine learning solutions in Python. My strength lies in combining deep knowledge of system administration with practical software development, enabling me to create robust and efficient solutions from infrastructure to the final application.</span>
+            </p>
+        </section>
+
+        <section id="skills" class="container">
+            <h2>
+                <span class="lang lang-cz" style="display:none;">Klíčové dovednosti</span>
+                <span class="lang lang-en" style="display:none;">Key Skills</span>
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Automation & DevOps</h3>
+                    <ul>
+                        <li>PowerShell</li>
+                        <li>Windows Server Administration</li>
+                        <li>Azure DevOps</li>
+                        <li>Infrastructure as Code (IaC)</li>
+                        <li>CI/CD</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Python & Machine Learning</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>Flask</li>
+                        <li>Spacy (NLP)</li>
+                        <li>Scikit-learn</li>
+                        <li>Pandas</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Web & Security</h3>
+                    <ul>
+                        <li>HTML, CSS, JavaScript</li>
+                        <li>Security Hardening</li>
+                        <li>Firewall Configuration</li>
+                        <li>Attack Surface Reduction (ASR)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="container">
+            <h2>
+                <span class="lang lang-cz" style="display:none;">Vybrané Projekty</span>
+                <span class="lang lang-en" style="display:none;">Featured Projects</span>
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>DocuSorterAI</h3>
+                    <p>
+                        <span class="lang lang-cz" style="display:none;">Inteligentní aplikace pro zpracování dokumentů, která využívá Python, NLP (Spacy) a machine learning (Scikit-learn) k automatické klasifikaci a extrakci dat z PDF a Word souborů. Funkcionalita je zpřístupněna přes REST API vytvořené pomocí frameworku Flask.</span>
+                        <span class="lang lang-en" style="display:none;">An intelligent document processing application that uses Python, NLP (Spacy), and machine learning (Scikit-learn) to automatically classify and extract data from PDF and Word files. The functionality is exposed via a REST API built with the Flask framework.</span>
+                    </p>
+                    <div class="technologies">
+                        <strong>Technologie / Technologies:</strong> Python, Flask, Spacy, Scikit-learn, Pandas
+                    </div>
+                    <a href="https://github.com/vas-ucet/DocuSorterAI" class="project-link" target="_blank">
+                        <span class="lang lang-cz" style="display:none;">Zobrazit kód</span>
+                        <span class="lang lang-en" style="display:none;">View Code</span>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Advanced Windows Security Hardening</h3>
+                    <p>
+                        <span class="lang lang-cz" style="display:none;">Komplexní PowerShell skript, který automatizuje aplikaci moderních bezpečnostních standardů na systémech Windows. Skript konfiguruje firewall, implementuje pravidla pro snížení zranitelnosti (ASR) a nastavuje pokročilé auditování systému pro včasnou detekci hrozeb.</span>
+                        <span class="lang lang-en" style="display:none;">A comprehensive PowerShell script that automates the application of modern security standards on Windows systems. The script configures the firewall, implements Attack Surface Reduction (ASR) rules, and sets up advanced system auditing for early threat detection.</span>
+                    </p>
+                    <div class="technologies">
+                        <strong>Technologie / Technologies:</strong> PowerShell, Windows Security Policies, ASR, Group Policy
+                    </div>
+                    <a href="https://github.com/vas-ucet/windows-security-hardening" class="project-link" target="_blank">
+                        <span class="lang lang-cz" style="display:none;">Zobrazit kód</span>
+                        <span class="lang lang-en" style="display:none;">View Code</span>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Dynamic Video Showreel Generator</h3>
+                    <p>
+                        <span class="lang lang-cz" style="display:none;">Automatizační skript v PowerShellu, který dynamicky generuje interaktivní webovou stránku (HTML/CSS/JS) pro prezentaci video portfolia. Skript automaticky načte videa ze složky a vytvoří moderní webový přehrávač s ovládacími prvky a playlistem.</span>
+                        <span class="lang lang-en" style="display:none;">An automation script in PowerShell that dynamically generates an interactive web page (HTML/CSS/JS) to present a video portfolio. The script automatically loads videos from a folder and creates a modern web player with controls and a playlist.</span>
+                    </p>
+                    <div class="technologies">
+                        <strong>Technologie / Technologies:</strong> PowerShell, HTML5, CSS3, JavaScript
+                    </div>
+                    <a href="https://github.com/vas-ucet/video-showreel-generator" class="project-link" target="_blank">
+                        <span class="lang lang-cz" style="display:none;">Zobrazit kód</span>
+                        <span class="lang lang-en" style="display:none;">View Code</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>
+            <span class="lang lang-cz" style="display:none;">Vytvořeno s pomocí Gemini AI | <a href="mailto:vas.email@example.com">Kontaktujte mě</a></span>
+            <span class="lang lang-en" style="display:none;">Created with the help of Gemini AI | <a href="mailto:vas.email@example.com">Contact Me</a></span>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
