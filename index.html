@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISESANALYSES-UX Security Tools Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #0056b3; /* A professional blue */
+            --secondary-color: #6c757d; /* Muted gray */
+            --accent-color: #28a745; /* A subtle green for highlights */
+            --background-light: #f8f9fa;
+            --background-dark: #e9ecef;
+            --text-dark: #343a40;
+            --text-muted: #6c757d;
+            --border-color: #dee2e6;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-hover: rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow-light);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .portfolio-item {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px var(--shadow-hover);
+        }
+
+        .portfolio-item h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-item p {
+            font-size: 0.95em;
+            color: var(--text-muted);
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-item a {
+            display: inline-block;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: var(--primary-color);
+            padding: 10px 18px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            align-self: flex-start;
+        }
+
+        .portfolio-item a:hover {
+            background-color: #004085;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LISESANALYSES-UX Security Tools Portfolio</h1>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <h3>Advanced Pentest Toolkit</h3>
+                <p>A web-based toolkit for penetration testing, including cloud, API, and AI testing modules.</p>
+                <a href="../advanced_pentest_toolkit_fixed.html" target="_blank">View Tool</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Crypto Mobile Analyzer</h3>
+                <p>A mobile-first crypto analysis tool for tracking and analyzing cryptocurrency data.</p>
+                <a href="../crypto_mobile_analyzer.html" target="_blank">View Tool</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Czech Compliance Tool</h3>
+                <p>A tool to help organizations with Czech cybersecurity compliance, including NIS2 and DORA.</p>
+                <a href="../FINAL-Czech-Compliance-Tool.html" target="_blank">View Tool</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>API Fuzzer</h3>
+                <p>A Python-based API fuzzer to test for vulnerabilities.</p>
+                <a href="https://github.com/lisesanalyses-ux/edu-security-Tools/tree/main/api_fuzzer" target="_blank">View on GitHub</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>DocuSorterAI</h3>
+                <p>An AI-powered tool for sorting and managing documents based on the FCO framework.</p>
+                <a href="../DocuSorterAI/FCO_Framework.html" target="_blank">View Tool</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Firmware Analyzer</h3>
+                <p>A tool for analyzing firmware for vulnerabilities.</p>
+                <a href="../firmware_analyzer/index.html" target="_blank">View Tool</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Reversio-Pro</h3>
+                <p>A web-based tool for reverse engineering.</p>
+                <a href="../reversio-pro/index.html" target="_blank">View Tool</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Security Admin Framework</h3>
+                <p>A framework for security administration tasks.</p>
+                <a href="../security admin framework/security-admin-framework.html" target="_blank">View Tool</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>UCSP</h3>
+                <p>Universal Cyber Security Platform.</p>
+                <a href="../UCSP/UCSP_Framework.html" target="_blank">View Tool</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Windows Security Hardening</h3>
+                <p>A PowerShell script for hardening Windows security settings.</p>
+                <a href="https://github.com/lisesanalyses-ux/edu-security-Tools/tree/main/windows%20security%20hardening" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

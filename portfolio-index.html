@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katerina Hoskova - DevOps & Automation Engineer</title>
+    <meta name="description" content="DevOps & Automation Engineer specializing in Python & ML. Portfolio of security tools and automation projects.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='8' fill='%2300d4ff'/%3E%3Ccircle cx='12' cy='12' r='3' fill='%23007bff'/%3E%3Ctext x='12' y='16' text-anchor='middle' fill='white' font-size='12'%3EKH%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous" defer></script>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+</head>
+<body>
+    <!-- Fixed Navigation -->
+    <nav class="floating-nav" id="floating-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="animated-logo">
+                    <!-- 3D Atomic Structure Elements -->
+                    <div class="atomic-orbit orbit-3"></div>
+                    <div class="atomic-orbit orbit-2"></div>
+                    <div class="atomic-orbit orbit-1"></div>
+                    <div class="energy-field"></div>
+                    <div class="electron-1"></div>
+                    <div class="electron-2"></div>
+                    <div class="electron-3"></div>
+                    <div class="nucleus"></div>
+                    <div class="logo-sphere"></div>
+                    <div class="logo-text">KH</div>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#tools" class="nav-link">Tools</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <div class="lang-switcher">
+                    <a href="#" data-lang="cz" class="active">CZ</a>
+                    <a href="#" data-lang="en">EN</a>
+                </div>
+                <div class="dark-mode-toggle">🌙</div>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="hero">
+                <h1>Katerina Hoskova</h1>
+                <div class="subtitle">
+                    <span class="lang lang-cz">DevOps & Automation Engineer</span>
+                    <span class="lang lang-en" style="display:none;">DevOps & Automation Engineer</span>
+                </div>
+                <div class="tagline">
+                    <span class="lang lang-cz">Vytváření efektivních automatizačních řešení využívajících moderní technologie</span>
+                    <span class="lang lang-en" style="display:none;">Creating efficient automation solutions using modern technologies</span>
+                </div>
+
+                <div class="contact-links" style="margin-top: 2rem;">
+                    <a href="mailto:lisesanalyses@gmail.com">📧 Email</a> |
+                    <a href="https://www.linkedin.com/in/katerina-hoskova-b9b32b390/" target="_blank">💼 LinkedIn</a> |
+                    <a href="https://github.com/lisesanalyses-ux" target="_blank">🐙 GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Star field animation -->
+        <div class="star-field" id="star-field"></div>
+    </header>
+
+        <main id="main-content">
+        <section id="about" class="container">
+            <h2 class="bounce-text">
+                About Me
+            </h2>
+            <p>
+                I am an experienced engineer specializing in automation and administration in Windows environments using PowerShell. I have proven experience in developing and deploying machine learning solutions in Python. My strength lies in combining deep knowledge of system administration with practical software development, enabling me to create robust and efficient solutions from infrastructure to the final application.
+            </p>
+        </section>
+
+        <section id="skills" class="container">
+            <h2 class="bounce-text">
+                Key Skills
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Automation & DevOps</h3>
+                    <ul>
+                        <li>PowerShell</li>
+                        <li>Windows Server Administration</li>
+                        <li>Azure DevOps</li>
+                        <li>Infrastructure as Code (IaC)</li>
+                        <li>CI/CD</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Python & Machine Learning</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>Flask</li>
+                        <li>Spacy (NLP)</li>
+                        <li>Scikit-learn</li>
+                        <li>Pandas</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Working Tools Section -->
+        <section id="tools">
+            <div class="container">
+                <h2 class="section-title">Working Tools & Applications</h2>
+                <div class="section-content">
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h3>🔍 Security Scanner</h3>
+                            <p>Real-time security analysis tool that scans URLs and provides vulnerability assessments with detailed reports.</p>
+
+                            <div class="tool-demo">
+                                <strong>Demo Output:</strong><br>
+                                Scanning: https://example.com<br>
+                                ✅ No vulnerabilities found<br>
+                                🔒 SSL Certificate: Valid<br>
+                                ⚡ Performance Score: 95/100
+                            </div>
+
+                            <button class="execute-btn" onclick="runSecurityScan()">Run Security Scan</button>
+                            <div class="result-display" id="security-result"></div>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3>📊 System Health Monitor</h3>
+                            <p>Comprehensive system diagnostics tool that provides real-time system performance metrics and health status.</p>
+
+                            <div class="tool-demo">
+                                <strong>Demo Output:</strong><br>
+                                CPU Usage: 45%<br>
+                                Memory Usage: 3.2GB / 8GB<br>
+                                Network Status: Connected<br>
+                                Disk Space: 240GB free
+                            </div>
+
+                            <button class="execute-btn" onclick="runSystemHealthCheck()">Check System Health</button>
+                            <div class="result-display" id="health-result"></div>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3>🔐 Password Strength Analyzer</h3>
+                            <p>Advanced password strength testing tool that analyzes complexity, entropy, and provides security recommendations.</p>
+
+                            <div class="tool-demo">
+                                <strong>Demo Output:</strong><br>
+                                Password Strength: Strong<br>
+                                Entropy: 128 bits<br>
+                                Time to crack: 2.8 trillion years<br>
+                                Recommendations: Keep it secure!
+                            </div>
+
+                            <button class="execute-btn" onclick="analyzePasswordStrength()">Analyze Password</button>
+                            <div class="result-display" id="password-result"></div>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3>🌐 API Response Tester</h3>
+                            <p>Interactive API testing tool that sends requests and displays formatted responses with performance metrics.</p>
+
+                            <div class="tool-demo">
+                                <strong>Demo Output:</strong><br>
+                                GET /api/status<br>
+                                Status: 200 OK<br>
+                                Response Time: 42ms<br>
+                                Content-Type: application/json
+                            </div>
+
+                            <button class="execute-btn" onclick="testAPIEndpoint()">Test API Endpoint</button>
+                            <div class="result-display" id="api-result"></div>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3>💾 Data Compression Tool</h3>
+                            <p>Efficient data compression utility that analyzes file types and applies optimal compression algorithms.</p>
+
+                            <div class="tool-demo">
+                                <strong>Demo Output:</strong><br>
+                                File: document.pdf<br>
+                                Original Size: 2.8MB<br>
+                                Compressed Size: 1.2MB<br>
+                                Compression Ratio: 57%
+                            </div>
+
+                            <button class="execute-btn" onclick="demonstrateCompression()">Show Compression Demo</button>
+                            <div class="result-display" id="compression-result"></div>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3>🔄 Code Formatter</h3>
+                            <p>Multi-language code formatting tool that beautifies and optimizes code structure across different programming languages.</p>
+
+                            <div class="tool-demo">
+                                <strong>Demo Output:</strong><br>
+                                Language: JavaScript<br>
+                                Lines of code: 125<br>
+                                Formatted successfully<br>
+                                Removed 8 extra spaces
+                            </div>
+
+                            <button class="execute-btn" onclick="demonstrateCodeFormatting()">Format Sample Code</button>
+                            <div class="result-display" id="format-result"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="container">
+            <h2>
+                <span class="lang lang-cz" style="display:none;">Vybrané Projekty</span>
+                <span class="lang lang-en" style="display:none;">Featured Projects</span>
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>DocuSorterAI</h3>
+                    <p>
+                        <span class="lang lang-cz" style="display:none;">Inteligentní aplikace pro zpracování dokumentů, která využívá Python, NLP (Spacy) a machine learning (Scikit-learn) k automatické klasifikaci a extrakci dat z PDF a Word souborů. Funkcionalita je zpřístupněna přes REST API vytvořené pomocí frameworku Flask.</span>
+                        <span class="lang lang-en" style="display:none;">An intelligent document processing application that uses Python, NLP (Spacy), and machine learning (Scikit-learn) to automatically classify and extract data from PDF and Word files. The functionality is exposed via a REST API built with the Flask framework.</span>
+                    </p>
+                    <div class="technologies">
+                        <strong>Technologie / Technologies:</strong> Python, Flask, Spacy, Scikit-learn, Pandas
+                    </div>
+                    <a href="https://github.com/vas-ucet/DocuSorterAI" class="project-link" target="_blank">
+                        <span class="lang lang-cz" style="display:none;">Zobrazit kód</span>
+                        <span class="lang lang-en" style="display:none;">View Code</span>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Advanced Windows Security Hardening</h3>
+                    <p>
+                        <span class="lang lang-cz" style="display:none;">Komplexní PowerShell skript, který automatizuje aplikaci moderních bezpečnostních standardů na systémech Windows. Skript konfiguruje firewall, implementuje pravidla pro snížení zranitelnosti (ASR) a nastavuje pokročilé auditování systému pro včasnou detekci hrozeb.</span>
+                        <span class="lang lang-en" style="display:none;">A comprehensive PowerShell script that automates the application of modern security standards on Windows systems. The script configures the firewall, implements Attack Surface Reduction (ASR) rules, and sets up advanced system auditing for early threat detection.</span>
+                    </p>
+                    <div class="technologies">
+                        <strong>Technologie / Technologies:</strong> PowerShell, Windows Security Policies, ASR, Group Policy
+                    </div>
+                    <a href="https://github.com/vas-ucet/windows-security-hardening" class="project-link" target="_blank">
+                        <span class="lang lang-cz" style="display:none;">Zobrazit kód</span>
+                        <span class="lang lang-en" style="display:none;">View Code</span>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Dynamic Video Showreel Generator</h3>
+                    <p>
+                        <span class="lang lang-cz" style="display:none;">Automatizační skript v PowerShellu, který dynamicky generuje interaktivní webovou stránku (HTML/CSS/JS) pro prezentaci video portfolia. Skript automaticky načte videa ze složky a vytvoří moderní webový přehrávač s ovládacími prvky a playlistem.</span>
+                        <span class="lang lang-en" style="display:none;">An automation script in PowerShell that dynamically generates an interactive web page (HTML/CSS/JS) to present a video portfolio. The script automatically loads videos from a folder and creates a modern web player with controls and a playlist.</span>
+                    </p>
+                    <div class="technologies">
+                        <strong>Technologie / Technologies:</strong> PowerShell, HTML5, CSS3, JavaScript
+                    </div>
+                    <a href="https://github.com/vas-ucet/video-showreel-generator" class="project-link" target="_blank">
+                        <span class="lang lang-cz" style="display:none;">Zobrazit kód</span>
+                        <span class="lang lang-en" style="display:none;">View Code</span>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Custom Web/API Fuzzer</h3>
+                    <p>
+                        <span class="lang lang-cz" style="display:none;">Lehký nástroj v Pythonu pro automatizaci fuzz testování webových API k odhalení zranitelností a neočekávaného chování. Generuje různé neplatné vstupy včetně SQL injekcí, XSS a dalších.</span>
+                        <span class="lang lang-en" style="display:none;">A lightweight Python tool for automating fuzz testing of web APIs to discover vulnerabilities and unexpected behavior. Generates various invalid inputs including SQL injection, XSS, path traversal, command injection, and random data.</span>
+                    </p>
+                    <div class="technologies">
+                        <strong>Technologie / Technologies:</strong> Python, Requests
+                    </div>
+                    <a href="#" class="project-link">
+                        <span class="lang lang-cz" style="display:none;">Zobrazit kód</span>
+                        <span class="lang lang-en" style="display:none;">View Code</span>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Firmware Analyzer</h3>
+                    <p>
+                        <span class="lang lang-cz" style="display:none;">Progresivní webová aplikace pro základní statickou analýzu souborů firmware. Postavena s Vue.js s moderním responzivním UI pro detekci typu souboru, extrakci řetězců, hex dump a analýzu entropie.</span>
+                        <span class="lang lang-en" style="display:none;">A Progressive Web App (PWA) for basic static analysis of firmware files. Built with Vue.js, featuring a modern responsive UI for file type detection, string extraction, hex dump, and entropy analysis.</span>
+                    </p>
+                    <div class="technologies">
+                        <strong>Technologie / Technologies:</strong> Vue.js, HTML, CSS, JavaScript
+                    </div>
+                    <a href="#" class="project-link">
+                        <span class="lang lang-cz" style="display:none;">Zobrazit kód</span>
+                        <span class="lang lang-en" style="display:none;">View Code</span>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Reversio Pro</h3>
+                    <p>
+                        <span class="lang lang-cz" style="display:none;">Komplexní webový diagnostický toolkit pro profesionální analýzu mobilních zařízení a diagnostiku firmware. S cyberpunk estetikou poskytuje simulovaný přístup k pokročilým diagnostickým modulům v offline prostředí.</span>
+                        <span class="lang lang-en" style="display:none;">A comprehensive web-based diagnostic toolkit designed for professional mobile device analysis and firmware diagnostics. Built with a cyberpunk aesthetic, providing simulated access to advanced mobile diagnostic modules in a standalone, offline-capable environment.</span>
+                    </p>
+                    <div class="technologies">
+                        <strong>Technologie / Technologies:</strong> HTML, CSS, JavaScript, PWA
+                    </div>
+                    <a href="#" class="project-link">
+                        <span class="lang lang-cz" style="display:none;">Zobrazit kód</span>
+                        <span class="lang lang-en" style="display:none;">View Code</span>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Unified Cyber Security Platform (UCSP)</h3>
+                    <p>
+                        <span class="lang lang-cz" style="display:none;">Produkční implementace UCSP frameworku integrující KSP a WSA nástroje. Poskytuje webový dashboard pro monitorování, korelaci a nápravu bezpečnostních incidentů napříč koncovými body v reálném čase.</span>
+                        <span class="lang lang-en" style="display:none;">A production-ready implementation of the UCSP framework, integrating KSP (Endpoint Detection & Response) and WSA tools. Provides a web-based dashboard for real-time monitoring, correlation, and remediation of security incidents across endpoints.</span>
+                    </p>
+                    <div class="technologies">
+                        <strong>Technologie / Technologies:</strong> Python, Flask, HTML, CSS, JavaScript, SQLite
+                    </div>
+                    <a href="#" class="project-link">
+                        <span class="lang lang-cz" style="display:none;">Zobrazit kód</span>
+                        <span class="lang lang-en" style="display:none;">View Code</span>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Advanced Penetration Testing Toolkit 2024</h3>
+                    <p>
+                        <span class="lang lang-cz" style="display:none;">Pokročilý webový toolkit pro penetrační testování navržený pro rok 2024 s různými moduly pro testování bezpečnostních zranitelností.</span>
+                        <span class="lang lang-en" style="display:none;">An advanced web-based toolkit for penetration testing designed for 2024 with various modules for testing security vulnerabilities.</span>
+                    </p>
+                    <div class="technologies">
+                        <strong>Technologie / Technologies:</strong> HTML, CSS, JavaScript
+                    </div>
+                    <a href="#" class="project-link">
+                        <span class="lang lang-cz" style="display:none;">Zobrazit kód</span>
+                        <span class="lang lang-en" style="display:none;">View Code</span>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Professional Crypto Mobile Analyzer</h3>
+                    <p>
+                        <span class="lang lang-cz" style="display:none;">Profesionální mobilní přívětivý analyzér pro kryptoměnové peněženky a transakce s podporou PWA pro mobilní zařízení.</span>
+                        <span class="lang lang-en" style="display:none;">Professional mobile-friendly analyzer for cryptocurrency wallets and transactions, with PWA support for mobile devices.</span>
+                    </p>
+                    <div class="technologies">
+                        <strong>Technologie / Technologies:</strong> HTML, CSS, JavaScript, PWA
+                    </div>
+                    <a href="#" class="project-link">
+                        <span class="lang lang-cz" style="display:none;">Zobrazit kód</span>
+                        <span class="lang lang-en" style="display:none;">View Code</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>
+                <span class="lang lang-cz" style="display:none;">Kontaktujte mě</span>
+                <span class="lang lang-en" style="display:none;">Get In Touch</span>
+            </h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>
+                        <span class="lang lang-cz" style="display:none;">Pojďme pracovat spolu</span>
+                        <span class="lang lang-en" style="display:none;">Let's Work Together</span>
+                    </h3>
+                    <p>
+                        <span class="lang lang-cz" style="display:none;">Máte zájem o spolupráci, projekt nebo jen chcete probrat nápady? Ozvěte se!</span>
+                        <span class="lang lang-en" style="display:none;">Interested in collaboration, a project, or just want to discuss ideas? Get in touch!</span>
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <strong>Email:</strong> <a href="mailto:lisesanalyses@gmail.com">lisesanalyses@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/katerina-hoskova-b9b32b390/" target="_blank">Katerina Hoskova</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>GitHub:</strong> <a href="https://github.com/lisesanalyses-ux" target="_blank">@lisesanalyses-ux</a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">
+                            <span class="lang lang-cz" style="display:none;">Jméno</span>
+                            <span class="lang lang-en" style="display:none;">Name</span>
+                        </label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">
+                            <span class="lang lang-cz" style="display:none;">Email</span>
+                            <span class="lang lang-en" style="display:none;">Email</span>
+                        </label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">
+                            <span class="lang lang-cz" style="display:none;">Předmět</span>
+                            <span class="lang lang-en" style="display:none;">Subject</span>
+                        </label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">
+                            <span class="lang lang-cz" style="display:none;">Zpráva</span>
+                            <span class="lang lang-en" style="display:none;">Message</span>
+                        </label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span class="lang lang-cz" style="display:none;">Odeslat zprávu</span>
+                        <span class="lang lang-en" style="display:none;">Send Message</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>
+            <span class="lang lang-cz">Vytvořeno s pomocí Gemini AI | <a href="mailto:lisesanalyses@gmail.com">Kontaktujte mě</a></span>
+            <span class="lang lang-en">Created with the help of Gemini AI | <a href="mailto:lisesanalyses@gmail.com">Contact Me</a></span>
+        </p>
+    </footer>
+</body>
+
+    <script src="script.js"></script>
+</body>
+</html>
