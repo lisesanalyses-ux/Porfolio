@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Admin - Cloud Security & Automation Specialist</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        /* Radar Algorithm Detection Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particles::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: 2px;
+            background: #00ffff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+            animation: radarPulse 6s ease-in-out infinite;
+        }
+
+        .particles::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: radarSweep 8s linear infinite;
+        }
+
+        /* Radar grid background */
+        .particles {
+            background-image:
+                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridShift 20s linear infinite;
+        }
+
+        /* Floating data points */
+        .signal-point {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #ff00ff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: dataSignal 12s ease-in-out infinite;
+        }
+
+        .signal-point:nth-child(1) {
+            top: 20%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .signal-point:nth-child(2) {
+            top: 35%;
+            left: 75%;
+            animation-delay: 1.5s;
+            background: #00ff80;
+        }
+
+        .signal-point:nth-child(3) {
+            top: 60%;
+            left: 25%;
+            animation-delay: 3s;
+            background: #ffff00;
+        }
+
+        /* Scanning lines */
+        .scan-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.8), transparent);
+            opacity: 0.6;
+            animation: horizontalScan 16s linear infinite;
+        }
+
+        .scan-line:nth-child(1) {
+            top: 30%;
+            width: 100%;
+            animation-delay: 0s;
+        }
+
+        /* Radar concentric circles */
+        .radar-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: radarRing 12s ease-out infinite;
+        }
+
+        .radar-ring.ring-1 {
+            width: 300px;
+            height: 300px;
+            animation-delay: 0s;
+        }
+
+        .radar-ring.ring-2 {
+            width: 600px;
+            height: 600px;
+            animation-delay: 3s;
+            border-color: rgba(255, 0, 255, 0.3);
+        }
+
+        /* Sweeping radar line */
+        .radar-sweep {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: 600px;
+            background: linear-gradient(to bottom, rgba(0, 255, 255, 0.9), transparent);
+            transform-origin: 50% 0;
+            transform: translateX(-50%);
+            animation: radarSweepRotate 12s linear infinite;
+        }
+
+        /* Code fragments */
+        .code-fragment {
+            position: absolute;
+            color: rgba(0, 255, 255, 0.3);
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            white-space: nowrap;
+            animation: codeFragment 20s ease-in-out infinite;
+        }
+
+        .code-fragment:nth-child(1) {
+            top: 15%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #6366f1, #a855f7);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .experience-item {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .experience-item h3 {
+            color: #6366f1;
+            margin-bottom: 15px;
+        }
+
+        .demo-section {
+            background: rgba(15, 15, 15, 0.5);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .demo-item {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+        }
+
+        .demo-item h3 {
+            color: #6366f1;
+            margin-bottom: 15px;
+        }
+
+        .demo-item p {
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .demo-item .btn {
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes radarPulse {
+            0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.5); }
+        }
+
+        @keyframes radarSweep {
+            0% { width: 0; height: 0; opacity: 1; }
+            100% { width: 800px; height: 800px; opacity: 0; }
+        }
+
+        @keyframes gridShift {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        @keyframes dataSignal {
+            0%, 100% { opacity: 0; transform: scale(1); }
+            50% { opacity: 1; transform: scale(2); }
+        }
+
+        @keyframes horizontalScan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes radarRing {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(0); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(2); }
+        }
+
+        @keyframes radarSweepRotate {
+            0% { transform: translateX(-50%) rotate(0deg); }
+            100% { transform: translateX(-50%) rotate(360deg); }
+        }
+
+        @keyframes codeFragment {
+            0%, 100% { opacity: 0.3; transform: translateY(0); }
+            50% { opacity: 0.8; transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Optimized Animated Background Particles -->
+    <div class="particles" id="particles">
+        <!-- Core radar elements only -->
+        <div class="radar-ring ring-1"></div>
+        <div class="radar-ring ring-2"></div>
+        <div class="radar-sweep"></div>
+
+        <!-- Minimal signal points -->
+        <div class="signal-point"></div>
+        <div class="signal-point"></div>
+        <div class="signal-point"></div>
+
+        <!-- Single scanning line -->
+        <div class="scan-line"></div>
+
+        <!-- Code fragment -->
+        <div class="code-fragment">scanning... threat_level++</div>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>Cloud Security Automation Specialist</h1>
+            <p>Specialista na cloudovou bezpečnost a IT automatizaci</p>
+            <div class="cta-buttons">
+                <a href="#demo" class="btn">Demo Tools</a>
+                <a href="#contact" class="btn">Get in Touch</a>
+                <a href="technical-cv.html" class="btn" target="_blank">Stáhnout Technické CV (PDF)</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="experience">
+        <div class="container">
+            <h2>My Experience & Knowledge</h2>
+            <div class="experience-grid">
+                <div class="experience-item">
+                    <h3>SIEM & Threat Detection</h3>
+                    <p>Aplikace SIEM principů pro aktivní monitorování a identifikaci raných hrozeb v cloudových prostředích M365.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Azure AD Security</h3>
+                    <p>Implementace bezpečnostních politik v Azure AD pro snížení rizika neoprávněného přístupu o 40%.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>AI-Powered Anomaly Detection</h3>
+                    <p>Automatizace detekce anomálií v cloudových logách pomocí AI nástrojů, což zkrátilo dobu reakce na hrozby z hodin na minuty.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Multi-Cloud Security Strategies</h3>
+                    <p>Návrh a nasazení multi-cloud bezpečnostních strategií pro ochranu citlivých dat před kyberútoky.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>GDPR Compliance in GCP</h3>
+                    <p>Optimalizace compliance procesů v GCP pro splnění GDPR standardů bez přerušení obchodních operací.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <h2>Kyberbezpečnostní Dema & Nástroje</h2>
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <h3>Aegis Vault - Správa hesel</h3>
+                    <p>Pokročilý trezor hesel s šifrováním a bezpečným generováním hesel. Demonstruje osvědčené postupy pro správu hesel a bezpečnost.</p>
+                    <a href="demo-aegis-vault.html" class="btn" target="_blank">Spustit Demo</a>
+                </div>
+                <div class="demo-item">
+                    <h3>HashShield - Vzdělávání o heslech</h3>
+                    <p>Interaktivní vzdělávací nástroj pro pochopení hashování hesel, KDF algoritmů a kryptografických bezpečnostních principů.</p>
+                    <a href="demo-hashshield.html" class="btn" target="_blank">Spustit Demo</a>
+                </div>
+                <div class="demo-item">
+                    <h3>Kyberstráž Procesů - Monitorování procesů</h3>
+                    <p>Systém monitorování procesů v reálném čase a analýzy hrozeb s pokročilými detekčními schopnostmi pro systémovou bezpečnost.</p>
+                    <a href="demo-process-monitor.html" class="btn" target="_blank">Spustit Demo</a>
+                </div>
+                <div class="demo-item">
+                    <h3>Windows Security Auditor</h3>
+                    <p>Komplexní nástroj pro auditování bezpečnosti systémů Windows s automatizovaným hodnocením zranitelností a doporučeními oprav.</p>
+                    <a href="demo-windows-auditor.html" class="btn" target="_blank">Spustit Demo</a>
+                </div>
+                <div class="demo-item">
+                    <h3>Zakřivení Prostoročasu - Desktop Hra</h3>
+                    <p>Interaktivní vizualizace zakřivení prostoročasu a gravitace jako deformace prostoru. Desktop verze hry pro běh mimo prohlížeč.</p>
+                    <a href="EI/Prostorocas_Zakriveny/" class="btn" target="_blank">Otevřít Desktop Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2025 Aura Admin. Specialista na Cloud Security & Automation.</p>
+        </div>
+    </footer>
+</body>
+</html>
