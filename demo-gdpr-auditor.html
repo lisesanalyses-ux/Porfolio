@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDPR Compliance Auditor - Data Protection Assessment</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .demo-section {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        .compliance-score {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(#10b981 0% 65%, #ffa502 65% 80%, #ff6b6b 80% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #0a0a0a;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .score-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #10b981;
+            position: relative;
+            z-index: 1;
+        }
+        .score-label {
+            font-size: 1.2em;
+            color: #a0a0a0;
+        }
+        .finding-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .finding-info {
+            flex-grow: 1;
+        }
+        .severity {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .severity-critical { background: rgba(255, 107, 107, 0.2); color: #ff6b6b; }
+        .severity-high { background: rgba(255, 165, 2, 0.2); color: #ffa502; }
+        .severity-medium { background: rgba(99, 102, 241, 0.2); color: #6366f1; }
+        .severity-low { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+        .btn {
+            background: linear-gradient(45deg, #6366f1, #a855f7);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+        .btn-success {
+            background: linear-gradient(45deg, #10b981, #059669);
+        }
+        .btn-warning {
+            background: linear-gradient(45deg, #ffa502, #ff8c00);
+        }
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.5);
+            color: #a5b4fc;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #6366f1, #a855f7);
+            width: 0%;
+            transition: width 1s ease;
+        }
+        .scan-status {
+            text-align: center;
+            color: #a5b4fc;
+            font-style: italic;
+        }
+        .gdpr-article {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="portfolio.html" class="back-btn">← Zpět do Portfolia</a>
+
+    <div class="container">
+        <div class="header">
+            <h1>🔒 GDPR Compliance Auditor</h1>
+            <p>Komplexní hodnocení souladu s nařízením GDPR</p>
+        </div>
+
+        <div class="demo-section">
+            <h2>Audit souladu probíhá</h2>
+            <div class="scan-status" id="scan-status">Inicializace GDPR auditu...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <button class="btn" onclick="startAudit()" id="audit-btn">Spustit GDPR Audit</button>
+        </div>
+
+        <div class="demo-section">
+            <h2>Skóre souladu</h2>
+            <div class="compliance-score">
+                <div class="score-circle">
+                    <div class="score-number" id="compliance-score">72</div>
+                </div>
+                <div class="score-label">Celkové hodnocení GDPR</div>
+                <p>Založeno na 28 kontrolách napříč vašimi daty a procesy</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Nalezené nesoulady</h2>
+            <p>Identifikované problémy a doporučení pro nápravu:</p>
+
+            <div id="findings-list">
+                <div class="finding-item">
+                    <div class="finding-info">
+                        <strong>Souhlas se zpracováním osobních údajů</strong><br>
+                        <small>Chybí explicitní souhlas pro marketingové účely</small>
+                        <div class="gdpr-article">Článek 6, 7 GDPR</div>
+                    </div>
+                    <div>
+                        <span class="severity severity-high">VYSOKÁ</span>
+                        <button class="btn btn-success" onclick="fixFinding('consent')">Opravit</button>
+                        <button class="btn" onclick="explainFinding('consent')">Vysvětlit</button>
+                    </div>
+                </div>
+
+                <div class="finding-item">
+                    <div class="finding-info">
+                        <strong>Práva subjektů údajů</strong><br>
+                        <small>Nejsou implementována práva na přístup a výmaz</small>
+                        <div class="gdpr-article">Článek 15, 17 GDPR</div>
+                    </div>
+                    <div>
+                        <span class="severity severity-critical">KRITICKÁ</span>
+                        <button class="btn btn-warning" onclick="fixFinding('rights')">Implementovat</button>
+                        <button class="btn" onclick="explainFinding('rights')">Vysvětlit</button>
+                    </div>
+                </div>
+
+                <div class="finding-item">
+                    <div class="finding-info">
+                        <strong>Záznamy o zpracování</strong><br>
+                        <small>Chybí úplné záznamy o aktivitách zpracování</small>
+                        <div class="gdpr-article">Článek 30 GDPR</div>
+                    </div>
+                    <div>
+                        <span class="severity severity-medium">STŘEDNÍ</span>
+                        <button class="btn btn-success" onclick="fixFinding('records')">Vytvořit</button>
+                        <button class="btn" onclick="explainFinding('records')">Vysvětlit</button>
+                    </div>
+                </div>
+
+                <div class="finding-item">
+                    <div class="finding-info">
+                        <strong>Hodnocení dopadu na ochranu údajů</strong><br>
+                        <small>DPIA nebyla provedena pro vysoce rizikové zpracování</small>
+                        <div class="gdpr-article">Článek 35 GDPR</div>
+                    </div>
+                    <div>
+                        <span class="severity severity-high">VYSOKÁ</span>
+                        <button class="btn btn-warning" onclick="fixFinding('dpia')">Provést</button>
+                        <button class="btn" onclick="explainFinding('dpia')">Vysvětlit</button>
+                    </div>
+                </div>
+
+                <div class="finding-item">
+                    <div class="finding-info">
+                        <strong>Pověřenec pro ochranu osobních údajů</strong><br>
+                        <small>Nebyl jmenován DPO pro organizaci této velikosti</small>
+                        <div class="gdpr-article">Článek 37 GDPR</div>
+                    </div>
+                    <div>
+                        <span class="severity severity-medium">STŘEDNÍ</span>
+                        <button class="btn btn-success" onclick="fixFinding('dpo')">Jmenovat</button>
+                        <button class="btn" onclick="explainFinding('dpo')">Vysvětlit</button>
+                    </div>
+                </div>
+
+                <div class="finding-item">
+                    <div class="finding-info">
+                        <strong>Oznamování porušení zabezpečení</strong><br>
+                        <small>Chybí postupy pro oznamování incidentů do 72 hodin</small>
+                        <div class="gdpr-article">Článek 33 GDPR</div>
+                    </div>
+                    <div>
+                        <span class="severity severity-critical">KRITICKÁ</span>
+                        <button class="btn btn-warning" onclick="fixFinding('breach')">Implementovat</button>
+                        <button class="btn" onclick="explainFinding('breach')">Vysvětlit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Kategorie GDPR</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2em; color: #10b981;">✅</div>
+                    <h3>Zákonnost zpracování</h3>
+                    <p>Právní základy pro zpracování údajů</p>
+                    <div style="color: #10b981; font-weight: bold;">SOULAD</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2em; color: #ffa502;">⚠️</div>
+                    <h3>Práva subjektů</h3>
+                    <p>Implementace práv na přístup, výmaz, přenositelnost</p>
+                    <div style="color: #ffa502; font-weight: bold;">VYŽADUJE POZORNOST</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2em; color: #ff6b6b;">❌</div>
+                    <h3>Zabezpečení údajů</h3>
+                    <p>Technická a organizační opatření</p>
+                    <div style="color: #ff6b6b; font-weight: bold;">KRITICKÉ PROBLÉMY</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2em; color: #6366f1;">🔒</div>
+                    <h3>Předávání údajů</h3>
+                    <p>Mezinárodní předávání a adequacy</p>
+                    <div style="color: #6366f1; font-weight: bold;">VYHOVUJÍCÍ</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>AI-Powered GDPR Analysis</h2>
+            <p>Naše AI analyzuje vaši pozici v oblasti ochrany údajů a poskytuje inteligentní doporučení:</p>
+            <div style="background: rgba(99, 102, 241, 0.1); border: 1px solid #6366f1; border-radius: 8px; padding: 20px; margin-top: 20px;">
+                <h3>🤖 AI GDPR Assessment</h3>
+                <p><strong>Úroveň rizika:</strong> Vysoká - Kritické nesoulady detekovány</p>
+                <p><strong>Priority akce:</strong></p>
+                <ul>
+                    <li>🔴 Implementovat práva subjektů údajů (Kritické)</li>
+                    <li>🟡 Provést DPIA pro vysoce rizikové zpracování (Vysoké)</li>
+                    <li>🟢 Vytvořit záznamy o zpracování (Střední)</li>
+                </ul>
+                <p><strong>Odhadovaný čas nápravy:</strong> 30 dní</p>
+                <button class="btn" onclick="runAIFix()" style="margin-top: 15px;">Spustit AI Auto-Fix</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let auditInterval;
+        let currentProgress = 0;
+
+        function startAudit() {
+            const auditBtn = document.getElementById('audit-btn');
+            const status = document.getElementById('scan-status');
+            const progressFill = document.getElementById('progress-fill');
+
+            auditBtn.disabled = true;
+            auditBtn.textContent = 'Audit probíhá...';
+            currentProgress = 0;
+
+            const auditSteps = [
+                'Inicializace GDPR auditoru...',
+                'Kontrola právních základů zpracování...',
+                'Analýza souhlasů a práv subjektů...',
+                'Hodnocení technických a organizačních opatření...',
+                'Kontrola záznamů o zpracování...',
+                'Ověření postupů pro incidenty...',
+                'Analýza mezinárodního předávání údajů...',
+                'Vyhodnocení souladu s DPIA...',
+                'Generování zprávy o souladu...'
+            ];
+
+            let stepIndex = 0;
+            auditInterval = setInterval(() => {
+                currentProgress += Math.random() * 12;
+                if (currentProgress > 100) currentProgress = 100;
+
+                progressFill.style.width = currentProgress + '%';
+
+                if (stepIndex < auditSteps.length) {
+                    status.textContent = auditSteps[stepIndex];
+                    stepIndex++;
+                }
+
+                if (currentProgress >= 100) {
+                    clearInterval(auditInterval);
+                    status.textContent = 'GDPR audit dokončen!';
+                    auditBtn.disabled = false;
+                    auditBtn.textContent = 'Audit dokončen - Zobrazit výsledky';
+                    updateComplianceScore();
+                }
+            }, 1000);
+        }
+
+        function updateComplianceScore() {
+            const scoreElement = document.getElementById('compliance-score');
+            scoreElement.textContent = '68';
+            scoreElement.style.color = '#ffa502';
+        }
+
+        function fixFinding(finding) {
+            let message = '';
+            switch(finding) {
+                case 'consent':
+                    message = 'Byl implementován systém pro správu souhlasů se zpracováním osobních údajů.';
+                    break;
+                case 'rights':
+                    message = 'Byla implementována práva subjektů údajů (přístup, výmaz, přenositelnost).';
+                    break;
+                case 'records':
+                    message = 'Byly vytvořeny kompletní záznamy o aktivitách zpracování.';
+                    break;
+                case 'dpia':
+                    message = 'Byla zahájena procedura hodnocení dopadu na ochranu údajů (DPIA).';
+                    break;
+                case 'dpo':
+                    message = 'Byl jmenován pověřenec pro ochranu osobních údajů (DPO).';
+                    break;
+                case 'breach':
+                    message = 'Byly implementovány postupy pro oznamování porušení zabezpečení.';
+                    break;
+            }
+            alert('✅ ' + message);
+        }
+
+        function explainFinding(finding) {
+            let explanation = '';
+            switch(finding) {
+                case 'consent':
+                    explanation = 'GDPR vyžaduje explicitní, informovaný a svobodný souhlas se zpracováním osobních údajů. Bez řádného souhlasu není zpracování zákonné.';
+                    break;
+                case 'rights':
+                    explanation = 'Subjekty údajů mají právo na přístup ke svým údajům, jejich opravu, výmaz, omezení zpracování a přenositelnost. Tyto práva musí být technicky implementovány.';
+                    break;
+                case 'records':
+                    explanation = 'Každý správce a zpracovatel musí vést záznamy o všech aktivitách zpracování osobních údajů, včetně účelů, kategorií údajů a opatření zabezpečení.';
+                    break;
+                case 'dpia':
+                    explanation = 'Pro zpracování s vysokým rizikem musí být provedeno hodnocení dopadu na ochranu osobních údajů před zahájením zpracování.';
+                    break;
+                case 'dpo':
+                    explanation = 'Organizace s rozsáhlým zpracováním musí jmenovat pověřence pro ochranu osobních údajů, který dohlíží na soulad s GDPR.';
+                    break;
+                case 'breach':
+                    explanation = 'Porušení zabezpečení osobních údajů musí být oznámeno dozorovému úřadu do 72 hodin, pokud představuje riziko pro práva a svobody subjektů údajů.';
+                    break;
+            }
+            alert('ℹ️ ' + explanation);
+        }
+
+        function runAIFix() {
+            alert('🤖 AI Auto-Fix spuštěn!\n\nAI automaticky:\n• Implementuje základní práva subjektů údajů\n• Vytvoří šablony záznamů o zpracování\n• Nastaví postupy pro incidenty\n• Připraví DPIA šablony\n\nOdhadovaný čas dokončení: 30 dní');
+        }
+
+        // Initialize with a demo audit
+        setTimeout(() => {
+            startAudit();
+        }, 1000);
+    </script>
+</body>
+</html>
