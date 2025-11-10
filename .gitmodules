@@ -1,0 +1,3 @@
+[submodule "EI"]
+	path = EI
+	url = https://github.com/lisesanalyses-ux/theory-of-relativity-game.git
