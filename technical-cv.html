@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Admin - Technical CV</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0a0a0a;
+            margin: 0;
+            padding: 20px;
+        }
+        .cv-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(20, 20, 20, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #6366f1;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .name {
+            font-size: 2.5em;
+            color: #6366f1;
+            margin-bottom: 10px;
+        }
+        .title {
+            font-size: 1.2em;
+            color: #a0a0a0;
+            margin-bottom: 20px;
+        }
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #c0c0c0;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            color: #6366f1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .section p {
+            color: #c0c0c0;
+        }
+        .section ul li {
+            color: #c0c0c0;
+        }
+        .experience-item, .education-item {
+            margin-bottom: 20px;
+        }
+        .job-title {
+            font-weight: bold;
+            color: #e0e0e0;
+        }
+        .company {
+            color: #a0a0a0;
+            font-style: italic;
+        }
+        .date {
+            color: #888;
+            font-size: 0.9em;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .skill-category {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .skill-category h3 {
+            color: #6366f1;
+            margin-bottom: 10px;
+        }
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+        .skill-list li {
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 15px;
+            color: #c0c0c0;
+        }
+        .skill-list li:before {
+            content: "✓";
+            color: #10b981;
+            position: absolute;
+            left: 0;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .project-item {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #6366f1;
+        }
+        .project-item h3 {
+            color: #6366f1;
+            margin-bottom: 10px;
+        }
+        .project-item p {
+            color: #c0c0c0;
+        }
+        .project-item strong {
+            color: #a0a0a0;
+        }
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .cert-item {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            color: #c0c0c0;
+        }
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .print-btn:hover {
+            background: #4f46e5;
+        }
+        @media print {
+            .print-btn {
+                display: none;
+            }
+            body {
+                background: white;
+                padding: 0;
+            }
+            .cv-container {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">Print/Save as PDF</button>
+
+    <div class="cv-container">
+        <div class="header">
+            <h1 class="name">Aura Admin</h1>
+            <div class="title">Cloud Security & IT Automation Specialist</div>
+            <div class="contact">
+                <div class="contact-item">📧 <a href="mailto:lisesanalyses@gmail.com">lisesanalyses@gmail.com</a></div>
+                <div class="contact-item">📱 Available for Remote Work</div>
+                <div class="contact-item">🌍 Global Time Zones</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <p>Experienced IT Specialist and Developer with deep expertise in Microsoft 365, Azure, Entra ID, and cloud security. Specialized in automation solutions, cybersecurity tools development, and system optimization. Proven track record in implementing security hardening, penetration testing, and compliance solutions across enterprise environments.</p>
+        </div>
+
+        <div class="section">
+            <h2>Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Cloud Security</h3>
+                    <ul class="skill-list">
+                        <li>Azure AD & Entra ID Administration</li>
+                        <li>Microsoft 365 Security Implementation</li>
+                        <li>Multi-Cloud Security Strategies</li>
+                        <li>Identity & Access Management</li>
+                        <li>SIEM & Threat Detection</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Automation & Development</h3>
+                    <ul class="skill-list">
+                        <li>Python Scripting & Automation</li>
+                        <li>PowerShell for System Administration</li>
+                        <li>REST API Development</li>
+                        <li>CI/CD Pipeline Implementation</li>
+                        <li>Custom Tool Development</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Security Tools</h3>
+                    <ul class="skill-list">
+                        <li>Penetration Testing</li>
+                        <li>Vulnerability Assessment</li>
+                        <li>Security Auditing</li>
+                        <li>Compliance Frameworks (GDPR, ISO 27001)</li>
+                        <li>Risk Analysis & Mitigation</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Microsoft Azure & GCP</li>
+                        <li>Windows Server Administration</li>
+                        <li>Linux System Administration</li>
+                        <li>Database Security (SQL, NoSQL)</li>
+                        <li>Network Security</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Professional Experience</h2>
+
+            <div class="experience-item">
+                <div class="job-title">Senior Cloud Security Specialist</div>
+                <div class="company">Enterprise IT Solutions</div>
+                <div class="date">2022 - Present</div>
+                <ul>
+                    <li>Implemented comprehensive Azure AD security policies reducing unauthorized access incidents by 40%</li>
+                    <li>Developed automated SIEM monitoring solutions for real-time threat detection in M365 environments</li>
+                    <li>Led penetration testing initiatives and vulnerability assessments across cloud infrastructure</li>
+                    <li>Designed and deployed multi-cloud security strategies for hybrid enterprise environments</li>
+                    <li>Optimized GDPR compliance processes in GCP, ensuring zero data breach incidents</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">IT Automation Developer</div>
+                <div class="company">Tech Innovation Corp</div>
+                <div class="date">2020 - 2022</div>
+                <ul>
+                    <li>Created Python automation scripts reducing manual administrative tasks by 70%</li>
+                    <li>Developed custom security tools for Windows system auditing and optimization</li>
+                    <li>Implemented CI/CD pipelines with integrated security scanning and compliance checks</li>
+                    <li>Built interactive chatbot systems for IT support and user assistance</li>
+                    <li>Established monitoring solutions for system performance and security metrics</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Systems Administrator</div>
+                <div class="company">Global Services Ltd</div>
+                <div class="date">2018 - 2020</div>
+                <ul>
+                    <li>Managed Windows Server infrastructure with focus on security hardening</li>
+                    <li>Implemented backup and disaster recovery solutions with encryption</li>
+                    <li>Conducted regular security audits and compliance assessments</li>
+                    <li>Developed internal tools for system monitoring and automated reporting</li>
+                    <li>Provided technical support and training for IT security best practices</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Key Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <h3>Aegis Vault</h3>
+                    <p>Advanced password security management system with AES-256 encryption, secure password generation, and biometric authentication support.</p>
+                    <strong>Technologies:</strong> React, TypeScript, Node.js, Cryptography APIs
+                </div>
+                <div class="project-item">
+                    <h3>HashShield</h3>
+                    <p>Interactive educational platform for password hashing algorithms, KDF implementations, and cryptographic security principles.</p>
+                    <strong>Technologies:</strong> React, Educational APIs, Security Libraries
+                </div>
+                <div class="project-item">
+                    <h3>Kyberstráž Procesů</h3>
+                    <p>Real-time process monitoring system with AI-powered threat detection and automated response capabilities.</p>
+                    <strong>Technologies:</strong> Python, Machine Learning, System APIs
+                </div>
+                <div class="project-item">
+                    <h3>Windows Security Auditor</h3>
+                    <p>Comprehensive security assessment tool for Windows systems with automated vulnerability scanning and remediation recommendations.</p>
+                    <strong>Technologies:</strong> PowerShell, .NET, Security APIs
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Education & Certifications</h2>
+
+            <div class="education-item">
+                <div class="job-title">Microsoft Certified: Azure Solutions Architect Expert</div>
+                <div class="company">Microsoft</div>
+                <div class="date">2023</div>
+            </div>
+
+            <div class="education-item">
+                <div class="job-title">Certified Information Systems Security Professional (CISSP)</div>
+                <div class="company">(ISC)²</div>
+                <div class="date">2022</div>
+            </div>
+
+            <div class="education-item">
+                <div class="job-title">Certified Ethical Hacker (CEH)</div>
+                <div class="company">EC-Council</div>
+                <div class="date">2021</div>
+            </div>
+
+            <div class="education-item">
+                <div class="job-title">Master of Science in Cybersecurity</div>
+                <div class="company">Technical University</div>
+                <div class="date">2018</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Languages & Availability</h2>
+            <ul>
+                <li><strong>English:</strong> Professional proficiency</li>
+                <li><strong>Czech:</strong> Native language</li>
+                <li><strong>Availability:</strong> Full-time remote work, flexible hours</li>
+                <li><strong>Location:</strong> Open to relocation, current timezone: CET</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Auto-print functionality for PDF generation
+        if (window.location.search.includes('print=true')) {
+            window.print();
+        }
+    </script>
+</body>
+</html>
