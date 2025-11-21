@@ -445,8 +445,27 @@
 
     <footer id="contact">
         <div class="container">
+            <h2 style="margin-bottom: 20px;">Get In Touch</h2>
+            <form id="contact-form" style="max-width: 500px; margin: 0 auto;">
+                <input type="text" id="name" placeholder="Your Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #555; border-radius: 5px; background: #222; color: white;">
+                <input type="email" id="email" placeholder="Your Email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #555; border-radius: 5px; background: #222; color: white;">
+                <textarea id="message" placeholder="Your Message" required style="width: 100%; height: 100px; padding: 10px; margin-bottom: 10px; border: 1px solid #555; border-radius: 5px; background: #222; color: white; resize: vertical;"></textarea>
+                <button type="submit" style="padding: 10px 20px; background: linear-gradient(45deg, #6366f1, #a855f7); color: white; border: none; border-radius: 5px; cursor: pointer;">Send Message</button>
+            </form>
             <p>&copy; 2025 Aura Admin. Specialista na Cloud Security & Automation. | <a href="mailto:lisesanalyses@gmail.com">lisesanalyses@gmail.com</a></p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const subject = encodeURIComponent('Portfolio Contact from ' + name);
+            const body = encodeURIComponent('From: ' + email + '\n\nMessage:\n' + message);
+            window.open('https://mail.google.com/mail/?view=cm&to=lisesanalyses@gmail.com&su=' + subject + '&body=' + body, '_blank');
+        });
+    </script>
 </body>
 </html>
